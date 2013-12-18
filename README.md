@@ -6,5 +6,5 @@
 curl keys.hussa.rs/sheerun
 curl keys.hussa.rs/chytreg
 
-ect...
+# etc.
 ```
