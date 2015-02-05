@@ -1,7 +1,7 @@
 # Monterail team members public keys
 
 File name should be the same as github username.
-At the end of the kye please put you monterail email address.
+At the end of the key please put your Monterail email address.
 
 ## Usage:
 
