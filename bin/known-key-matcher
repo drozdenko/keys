@@ -1,0 +1,40 @@
+#!/usr/bin/env ruby
+require 'fileutils'
+
+input_file = ARGV[0]
+
+unless input_file && File.exist?(input_file)
+  raise ArgumentError.new("First argument should be a file")
+end
+
+def pub_key_parser(pubkey)
+  arry = pubkey.strip.split(/\s/)
+  { arry.first(2).join(' ') => arry.drop(2).join(' ') }
+end
+
+inputHash = File.readlines(input_file).inject({}) do |hash, string|
+  hash.merge! pub_key_parser(string)
+end
+
+monteHash = Dir[File.join(File.dirname(__FILE__), "*.pub")].inject({}) do |hash, file|
+  hash.merge! pub_key_parser(File.read(file))
+end
+
+known_keys   = monteHash.keys & inputHash.keys
+unknown_keys = inputHash.keys - monteHash.keys
+
+FileUtils.mkdir_p 'tmp'
+
+File.open('tmp/known_authorized_keys', 'w') do |f1|
+  known_keys.each do |key|
+    f1.puts "#{key} #{monteHash[key]}"
+  end
+end
+
+File.open('tmp/unknown_authorized_keys', 'w') do |f2|
+  unknown_keys.each do |key|
+    f2.puts "#{key} #{inputHash[key]}"
+  end
+end
+
+puts "Done, checkout tmp/known_authorized_keys and tmp/unknown_authorized_keys"
