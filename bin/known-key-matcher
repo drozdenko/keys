@@ -16,7 +16,7 @@ inputHash = File.readlines(input_file).inject({}) do |hash, string|
   hash.merge! pub_key_parser(string)
 end
 
-monteHash = Dir[File.join(File.dirname(__FILE__), "*.pub")].inject({}) do |hash, file|
+monteHash = Dir[File.join(File.dirname(__FILE__), "../*.pub")].inject({}) do |hash, file|
   hash.merge! pub_key_parser(File.read(file))
 end
 
