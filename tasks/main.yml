@@ -1,0 +1,6 @@
+---
+- name: Install SSH keys
+  authorized_key:
+    user: "{{ item.user }}"
+    key: "{{ lookup('file', '../files/' + item.key + '.pub') }}"
+  with_items: "{{ monterail_keys }}"

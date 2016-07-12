@@ -1,0 +1,16 @@
+galaxy_info:
+  author: Jan Dudulski
+  description: SSH Keys for Monterail team
+  company: Monterail.com
+
+  issue_tracker_url: https://github.com/monterail/keys/issues
+  license: BSD
+  min_ansible_version: 2.0
+  github_branch: master
+
+  platforms:
+  - name: Ubuntu
+    versions:
+    - xenial
+
+dependencies: []
