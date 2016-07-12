@@ -5,7 +5,7 @@ app = lambda do |env|
   user = env["PATH_INFO"].sub("/", "").strip
 
   if user == "team"
-    keys = Dir[File.join(File.dirname(__FILE__), "*.pub")].map do |file|
+    keys = Dir[File.join(File.dirname(__FILE__), "files", "*.pub")].map do |file|
       File.read(file).strip
     end.join("\n")
 
@@ -18,7 +18,7 @@ app = lambda do |env|
     # - it just works
 
     sources = [
-      "https://raw.github.com/monterail/keys/master/#{user}.pub",
+      "https://raw.github.com/monterail/keys/master/files/#{user}.pub",
       "https://github.com/#{user}.keys"
     ]
 

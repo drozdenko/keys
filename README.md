@@ -15,7 +15,7 @@ curl keys.hussa.rs/chytreg
 
 ## Public key matcher:
 
-This simple ruby script match known Monterail public keys against input authorized_keys file.
+This simple ruby script match known Monterail public keys against input `authorized_keys` file.
 
 ```
 bin/known-key-matcher ~/.ssh/authorized_keys
