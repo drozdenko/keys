@@ -1,5 +1,4 @@
 ---
-monterail_keys:
-  - user: jandudulski
-    keys:
-      - jandudulski
+user: jandudulski
+keys:
+  - jandudulski

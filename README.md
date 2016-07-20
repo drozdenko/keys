@@ -42,10 +42,19 @@ And edit `roles/monterail.keys/vars/main.yml` which should contain list of machi
 ```yml
 # vars/main.yml
 ---
-monterail_keys:
-  - user: appuser
-    keys:
-      - developer
-      - sysadmin
-      - other
+user: appuser
+keys:
+  - developer
+  - sysadmin
+  - other
 ```
+
+Or in the playbook:
+
+```yml
+# playbooks/playbook.yml
+- name: Setup
+
+  roles:
+    - { role: monterail.keys, user: "appuser", keys: ["developer", "sysadmin"] }
+    - { role: monterail.keys, user: "otheruser", keys: ["developer", "sysadmin", "other"] }
