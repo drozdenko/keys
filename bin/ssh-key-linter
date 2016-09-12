@@ -1,0 +1,12 @@
+#!/bin/bash -e
+# Usage: ./ssh-key-linter /path/to/*.pub
+DIR=$(cd -P $(dirname "${BASH_SOURCE[0]}") && pwd)
+LOCATION=${1-${DIR}/../files}
+
+for key in ${LOCATION}/*.pub; do
+  if !(cat $key | grep -i @monterail.com$ > /dev/null); then
+    FAILURE=true
+    echo "Invalid key: $(basename ${key})"
+  fi
+done
+if [[ -n "${FAILURE}" ]]; then exit 1; fi

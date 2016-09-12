@@ -11,3 +11,4 @@ dependencies:
 test:
   override:
     - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
+    - ./bin/ssh-key-linter
