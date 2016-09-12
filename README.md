@@ -1,8 +1,10 @@
 # Monterail team members public keys
 
-File name should be the same as github username.
+File name should be the same as github username and placed in `files/active/[USERNAME].pub` location.
 
 At the end of the key please put your Monterail email address.
+
+All staled keys **shouldn't be removed** but placed in `files/trash` location!
 
 ## Usage:
 

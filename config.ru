@@ -18,7 +18,7 @@ app = lambda do |env|
     # - it just works
 
     sources = [
-      "https://raw.github.com/monterail/keys/master/files/#{user}.pub",
+      "https://raw.github.com/monterail/keys/master/files/active/#{user}.pub",
       "https://github.com/#{user}.keys"
     ]
 

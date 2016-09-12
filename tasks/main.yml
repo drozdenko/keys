@@ -2,6 +2,6 @@
 - name: Install SSH keys
   authorized_key:
     user: "{{ user }}"
-    key: "{{ lookup('file', '../files/' + item + '.pub') }}"
+    key: "{{ lookup('file', '../files/active/' + item + '.pub') }}"
   with_items:
     - "{{ keys }}"

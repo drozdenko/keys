@@ -1,7 +1,7 @@
 #!/bin/bash -e
 # Usage: ./ssh-key-linter /path/to/*.pub
 DIR=$(cd -P $(dirname "${BASH_SOURCE[0]}") && pwd)
-LOCATION=${1-${DIR}/../files}
+LOCATION=${1-${DIR}/../files/active}
 
 for key in ${LOCATION}/*.pub; do
   if !(cat $key | grep -i @monterail.com$ > /dev/null); then
